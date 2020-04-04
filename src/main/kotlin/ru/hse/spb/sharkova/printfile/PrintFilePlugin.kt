@@ -11,6 +11,9 @@ class PrintFilePlugin : Plugin<Project> {
 
         target.afterEvaluate {
             if (!extension.enabled) return@afterEvaluate
+            if (target.hasProperty("filename")) {
+                extension.filename = target.property("filename") as String
+            }
             if (extension.filename.isNotEmpty()) {
                 println("${extension.filename} contents with lines skipped:")
             }
@@ -18,7 +21,7 @@ class PrintFilePlugin : Plugin<Project> {
 
         with(target.tasks) {
             create("printfile", PrintFileTask::class.java) {
-                it.group = "Development"
+                it.group = "Other"
                 it.description = "Output file content with specified lines skipped"
             }
         }
