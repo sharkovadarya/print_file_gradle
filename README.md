@@ -26,10 +26,14 @@ pluginManagement {
 
 3. To configure the plugin, add the following to your `build.gradle.kts` file:
 ```
-printfile {
+printfile { 
     enabled = true
     filename = "your/filename.txt"
 }
 ```
+
+If you wish to use command line to supply the file name, launch the plugin with an additional `filename` property specified:
+
+`gradle printfile -Pfilename="your/filename.txt"`
 
 4. To disable the plugin, set `enabled` (see above) to false.
