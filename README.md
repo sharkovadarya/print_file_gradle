@@ -13,6 +13,17 @@ plugins {
 ```
 to your `build.gradle.kts` file.
 
+
+Note that your `settings.gradle.kts` file must contain the following:
+```
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+    }
+}
+```
+
 3. To configure the plugin, add the following to your `build.gradle.kts` file:
 ```
 printfile {
